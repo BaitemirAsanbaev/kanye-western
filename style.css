@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background-image: url(./imges/bg.jpg);
+    background-size: 125%;
+    background-position: top;
+}
