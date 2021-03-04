@@ -3,7 +3,7 @@
 }
 body{
     margin: 0;
-    /* background-image: url(./imges/bg.jpg); */
+    background-image: url(./imges/bg.jpg);
     background-size: 125%;
     background-position: top;
     overflow: hidden;
@@ -14,9 +14,3 @@ body{
     background: none;
     z-index: 1;
 }
-/* div{
-    background-image: url(./aim.png);
-    width: 100px;
-    height: 100px;
-    z-index: 2;
-} */

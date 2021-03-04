@@ -10,4 +10,9 @@ document.body.addEventListener('mousemove', function(event){
     aim.style.top = (event.clientY - 50) + "px";
     aim.style.left = (event.clientX - 50) + "px";
 })
-
+document.body.addEventListener('click', function(event){
+    let audio = new Audio();
+    audio.preload = 'auto';
+    audio.src = './shot.mp3';
+    audio.play();
+})
