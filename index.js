@@ -10,9 +10,22 @@ document.body.addEventListener('mousemove', function(event){
     aim.style.top = (event.clientY - 50) + "px";
     aim.style.left = (event.clientX - 50) + "px";
 })
-document.body.addEventListener('click', function(event){
-    let audio = new Audio();
-    audio.preload = 'auto';
-    audio.src = './shot.mp3';
-    audio.play();
+
+
+let interval;
+
+document.body.addEventListener('mousedown', function(event){
+
+
+
+    
+    interval = setInterval(function(){
+        let audio = new Audio();
+        audio.preload = 'auto';
+        audio.src = './shot.mp3';
+        audio.play();
+    })
+})
+document.body.addEventListener('mouseup', function(event){
+    clearInterval(interval);
 })
