@@ -34,7 +34,8 @@ let int = setInterval(() => {
     document.body.append(enemy);
     enemy.style.height = '100px';
     enemy.style.width = '100px';
-    enemy.style.backgroundColor = 'blue';
+    enemy.style.backgroundImage = 'url(./imges/kanye.png)'
+    enemy.style.backgroundSize = 'contain'
     enemy.style.position = 'absolute';
     enemy.style.top = (Math.floor(Math.random() * (700 - 100)) + 100) + 'px';
     enemy.style.left = (Math.floor(Math.random() * (1200 - 100)) + 100) + 'px';
