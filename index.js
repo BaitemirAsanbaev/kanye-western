@@ -34,8 +34,12 @@ let int = setInterval(() => {
     document.body.append(enemy);
     enemy.style.height = '100px';
     enemy.style.width = '100px';
-    enemy.style.backgroundColor = 'red';
+    enemy.style.backgroundColor = 'blue';
     enemy.style.position = 'absolute';
     enemy.style.top = (Math.floor(Math.random() * (700 - 100)) + 100) + 'px';
     enemy.style.left = (Math.floor(Math.random() * (1200 - 100)) + 100) + 'px';
+    
+    enemy.addEventListener('mousedown', () => {
+        enemy.style.display = 'none';
+})
 }, 3000)
