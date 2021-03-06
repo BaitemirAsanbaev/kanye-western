@@ -14,3 +14,10 @@ body{
     background: none;
     z-index: 1;
 }
+#score{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: aliceblue;
+    background-color:rgba(0, 0, 0, 0.671);
+}

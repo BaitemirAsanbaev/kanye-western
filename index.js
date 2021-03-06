@@ -29,6 +29,7 @@ document.body.addEventListener('mousedown', function(event){
 document.body.addEventListener('mouseup', function(event){
     clearInterval(interval);
 })
+let score = 0;
 let int = setInterval(() => {
     let enemy = document.createElement('div');
     document.body.append(enemy);
@@ -42,5 +43,9 @@ let int = setInterval(() => {
     
     enemy.addEventListener('mousedown', () => {
         enemy.style.display = 'none';
+        score ++;
+        let scr = document.querySelector('#score');
+        scr.innerText = score;
+
 })
 }, 3000)
