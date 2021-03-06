@@ -30,6 +30,13 @@ document.body.addEventListener('mouseup', function(event){
     clearInterval(interval);
 })
 let score = 0;
+let intervalTime = 3000;
+while(score % 10 == 0){
+    intervalTime -= 1000;
+    if(score == 0){
+        break
+    }
+}
 let int = setInterval(() => {
     let enemy = document.createElement('div');
     document.body.append(enemy);
@@ -48,4 +55,4 @@ let int = setInterval(() => {
         scr.innerText = score;
 
 })
-}, 3000)
+}, intervalTime)
