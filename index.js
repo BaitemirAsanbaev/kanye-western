@@ -14,17 +14,26 @@ document.body.addEventListener('mousemove', function(event){
 
 let interval;
 
+let bullets = 30;
+
 document.body.addEventListener('mousedown', function(event){
 
 
-
+    bullets--;
     
-    interval = setInterval(function(){
-        let audio = new Audio();
-        audio.preload = 'auto';
-        audio.src = './shot.mp3';
-        audio.play();
+    let bul = document.querySelector('#bullets')
+    if(bullets >= 0){
+        bul.innerHTML = "bullets: " + bullets + '/30';
+    }
+    if(bullets > 0){
+        interval = setInterval(function(){
+            let audio = new Audio();
+            audio.preload = 'auto';
+            audio.src = './shot.mp3';
+            audio.play();
     })
+    }
+    
 })
 document.body.addEventListener('mouseup', function(event){
     clearInterval(interval);
@@ -49,10 +58,13 @@ let int = setInterval(() => {
     enemy.style.left = (Math.floor(Math.random() * (1200 - 100)) + 100) + 'px';
     
     enemy.addEventListener('mousedown', () => {
-        enemy.style.display = 'none';
-        score ++;
+        if(bullets > 0){
+            enemy.style.display = 'none';
+            score ++;
+        }
         let scr = document.querySelector('#score');
-        scr.innerText = score;
+        scr.innerHTML = "score: " + score;
 
 })
-}, intervalTime)
+}, intervalTime);
+

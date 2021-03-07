@@ -21,3 +21,11 @@ body{
     color: aliceblue;
     background-color:rgba(0, 0, 0, 0.671);
 }
+#bullets{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: aliceblue;
+    background-color:rgba(0, 0, 0, 0.671);
+
+}
