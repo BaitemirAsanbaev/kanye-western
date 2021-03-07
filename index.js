@@ -11,17 +11,28 @@ document.body.addEventListener('mousemove', function(event){
     aim.style.left = (event.clientX - 50) + "px";
 })
 
+function reload(){
+    bul.innerHTML = "bullets: " + bullets + '/30';
+}
 
 let interval;
 let bullets = 30;
-
+let bul = document.querySelector('#bullets')
+document.body.addEventListener('keydown', (event) =>{
+    if(event.keyCode == 82 && bullets > 25){
+        bullets = 30;
+        reload();
+    }else{
+        bullets +=5;
+        reload();
+    }
+})
 document.body.addEventListener('mousedown', function(event){
-    let bul = document.querySelector('#bullets')
 
     bullets--;
     
     if(bullets >= 0){
-        bul.innerHTML = "bullets: " + bullets + '/30';
+        reload();
     }
     if(bullets > 0){
         interval = setInterval(function(){
