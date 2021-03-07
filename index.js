@@ -13,15 +13,13 @@ document.body.addEventListener('mousemove', function(event){
 
 
 let interval;
-
 let bullets = 30;
 
 document.body.addEventListener('mousedown', function(event){
-
+    let bul = document.querySelector('#bullets')
 
     bullets--;
     
-    let bul = document.querySelector('#bullets')
     if(bullets >= 0){
         bul.innerHTML = "bullets: " + bullets + '/30';
     }
@@ -31,21 +29,26 @@ document.body.addEventListener('mousedown', function(event){
             audio.preload = 'auto';
             audio.src = './shot.mp3';
             audio.play();
-    })
+        })
     }
     
 })
 document.body.addEventListener('mouseup', function(event){
     clearInterval(interval);
 })
+
+
 let score = 0;
 let intervalTime = 3000;
+
 while(score % 10 == 0){
     intervalTime -= 1000;
     if(score == 0){
         break
     }
 }
+
+
 let int = setInterval(() => {
     let enemy = document.createElement('div');
     document.body.append(enemy);
@@ -64,7 +67,6 @@ let int = setInterval(() => {
         }
         let scr = document.querySelector('#score');
         scr.innerHTML = "score: " + score;
-
-})
+    })
 }, intervalTime);
 
