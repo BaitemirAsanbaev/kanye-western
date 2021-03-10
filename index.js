@@ -92,7 +92,7 @@ let intMag = setInterval(() => {
     document.body.append(plusMag);
     plusMag.style.height = '100px';
     plusMag.style.width = '100px';
-    plusMag.style.backgroundColor = 'red'
+    plusMag.style.backgroundImage = 'url(./imges/plusMag.png)'
     plusMag.style.backgroundSize = 'contain'
     plusMag.style.position = 'absolute';
     plusMag.style.top = (Math.floor(Math.random() * (700 - 100)) + 100) + 'px';
@@ -103,7 +103,7 @@ let intMag = setInterval(() => {
             plusMag.style.display = 'none';
             magaz ++;
         }
-        mag.innerHTML = "Magazine: " + mag;
+        mag.innerHTML = "magazine: " + magaz;
     })
 }, 6000);
 
