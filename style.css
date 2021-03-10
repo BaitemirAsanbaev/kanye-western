@@ -29,3 +29,11 @@ body{
     background-color:rgba(0, 0, 0, 0.671);
 
 }
+#magaz{
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    color: aliceblue;
+    background-color:rgba(0, 0, 0, 0.671);
+
+}
