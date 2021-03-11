@@ -1,12 +1,14 @@
 //переменные
 
-
 //прицел
 let aim = document.createElement('div');
 document.body.append(aim);
+aim.className = 'gamePart'
 
 //счёт
 let score = 0;
+let scr = document.querySelector('#score');
+scr.className = 'gamePart';
 
 //скорость появления врагов
 let intervalTime = 3000;
@@ -14,13 +16,19 @@ let intervalTime = 3000;
 //магазин
 let magaz = 3;
 let mag = document.querySelector('#magaz');
+mag.innerText = '';
 
 //интервал стрельбы
 let interval;
 
 //патроны
-let bullets = 30;
+let bullets = 10;
 let bul = document.querySelector('#bullets')
+bul.innerText = '';
+
+//конец игры
+let gameOver = true;
+
 
 
 //события
@@ -34,23 +42,28 @@ document.body.addEventListener('mousemove', function(event){
     aim.style.height = '100px';
     aim.style.top = (event.clientY - 50) + "px";
     aim.style.left = (event.clientX - 50) + "px";
+    if(gameOver){
+        aim.style.display = 'none';
+    }
 })
 
 //функция перезарядки
 function reload(){
-    bul.innerHTML = "bullets: " + bullets + '/30';
+    bul.innerHTML = "bullets: " + bullets + '/10';
 }
+
+
 
 //расход магазина и перезарядка
 document.body.addEventListener('keydown', (event) =>{
     if( magaz > 0){
         magaz --;
         mag.innerHTML = 'magazine: ' + magaz;
-        if(event.keyCode == 82 && bullets > 25){
-            bullets = 30;
+        if(event.keyCode == 82 && bullets > 9){
+            bullets = 10;
             reload();
         }else{
-            bullets +=5;
+            bullets += 3;
             reload();
         }
     }  
@@ -89,6 +102,7 @@ while(score % 10 == 0){
 
 //интервал появления врагов
 let int = setInterval(() => {
+
     let enemy = document.createElement('div');
     document.body.append(enemy);
     enemy.style.height = '100px';
@@ -105,13 +119,16 @@ let int = setInterval(() => {
             enemy.style.display = 'none';
             score ++;
         }
-        let scr = document.querySelector('#score');
         scr.innerHTML = "score: " + score;
     })
 }, intervalTime);
+if(gameOver){
+    clearInterval(int);
+}
 
 //интервал появления нового магазина
 let intMag = setInterval(() => {
+
     let plusMag = document.createElement('div');
     document.body.append(plusMag);
     plusMag.style.height = '100px';
@@ -131,4 +148,18 @@ let intMag = setInterval(() => {
         mag.innerHTML = "magazine: " + magaz;
     })
 }, 6000);
+if(gameOver){
+    clearInterval(intMag);
+}
 
+//
+if(gameOver){
+    let all = document.querySelector('.gamePart');
+    all.style.display = 'none';
+    document.body.style.background = 'none'
+    document.body.style.backgroundColor = '#595959'
+    let gameOverTitle = document.createElement('h1');
+    document.body.append(gameOverTitle);
+    gameOverTitle.className = 'got'
+    gameOverTitle.innerText = "Game Over"
+}
