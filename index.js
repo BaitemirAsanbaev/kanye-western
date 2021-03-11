@@ -1,6 +1,31 @@
+//переменные
+
+
+//прицел
 let aim = document.createElement('div');
 document.body.append(aim);
 
+//счёт
+let score = 0;
+
+//скорость появления врагов
+let intervalTime = 3000;
+
+//магазин
+let magaz = 3;
+let mag = document.querySelector('#magaz');
+
+//интервал стрельбы
+let interval;
+
+//патроны
+let bullets = 30;
+let bul = document.querySelector('#bullets')
+
+
+//события
+
+//прицел следует за мышкой
 document.body.addEventListener('mousemove', function(event){
     aim.style.position = "absolute";
     aim.style.backgroundSize = 'contain';
@@ -11,14 +36,12 @@ document.body.addEventListener('mousemove', function(event){
     aim.style.left = (event.clientX - 50) + "px";
 })
 
+//функция перезарядки
 function reload(){
     bul.innerHTML = "bullets: " + bullets + '/30';
 }
-let magaz = 3;
-let mag = document.querySelector('#magaz');
-let interval;
-let bullets = 30;
-let bul = document.querySelector('#bullets')
+
+//расход магазина и перезарядка
 document.body.addEventListener('keydown', (event) =>{
     if( magaz > 0){
         magaz --;
@@ -30,9 +53,10 @@ document.body.addEventListener('keydown', (event) =>{
             bullets +=5;
             reload();
         }
-    }
-    
+    }  
 })
+
+//стрельба (расход патронов и звук)
 document.body.addEventListener('mousedown', function(event){
 
     bullets--;
@@ -50,14 +74,12 @@ document.body.addEventListener('mousedown', function(event){
     }
     
 })
+//очистка интервала звука 
 document.body.addEventListener('mouseup', function(event){
     clearInterval(interval);
 })
 
-
-let score = 0;
-let intervalTime = 3000;
-
+//цикл ускорения появления врагов
 while(score % 10 == 0){
     intervalTime -= 1000;
     if(score == 0){
@@ -65,7 +87,7 @@ while(score % 10 == 0){
     }
 }
 
-
+//интервал появления врагов
 let int = setInterval(() => {
     let enemy = document.createElement('div');
     document.body.append(enemy);
@@ -76,7 +98,8 @@ let int = setInterval(() => {
     enemy.style.position = 'absolute';
     enemy.style.top = (Math.floor(Math.random() * (700 - 100)) + 100) + 'px';
     enemy.style.left = (Math.floor(Math.random() * (1200 - 100)) + 100) + 'px';
-    
+
+    //при попадании исчезновение врагов
     enemy.addEventListener('mousedown', () => {
         if(bullets > 0){
             enemy.style.display = 'none';
@@ -87,6 +110,7 @@ let int = setInterval(() => {
     })
 }, intervalTime);
 
+//интервал появления нового магазина
 let intMag = setInterval(() => {
     let plusMag = document.createElement('div');
     document.body.append(plusMag);
@@ -98,6 +122,7 @@ let intMag = setInterval(() => {
     plusMag.style.top = (Math.floor(Math.random() * (700 - 100)) + 100) + 'px';
     plusMag.style.left = (Math.floor(Math.random() * (1200 - 100)) + 100) + 'px';
     
+    //при попадании исчезновение нового магазина
     plusMag.addEventListener('mousedown', () => {
         if(bullets > 0){
             plusMag.style.display = 'none';
