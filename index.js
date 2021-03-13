@@ -18,8 +18,6 @@ let magaz = 3;
 let mag = document.querySelector('#magaz');
 mag.innerText = '';
 
-//интервал стрельбы
-let interval;
 
 //патроны
 let bullets = 10;
@@ -27,7 +25,7 @@ let bul = document.querySelector('#bullets')
 bul.innerText = '';
 
 //конец игры
-let gameOver = true;
+let gameOver = false;
 
 
 
@@ -56,40 +54,36 @@ function reload(){
 
 //расход магазина и перезарядка
 document.body.addEventListener('keydown', (event) =>{
-    if( magaz > 0){
-        magaz --;
-        mag.innerHTML = 'magazine: ' + magaz;
-        if(event.keyCode == 82 && bullets > 9){
-            bullets = 10;
-            reload();
-        }else{
-            bullets += 3;
-            reload();
-        }
-    }  
+    if(event.keyCode == 82){
+        if( magaz > 0){
+            magaz --;
+            mag.innerHTML = 'magazine: ' + magaz;
+            if( bullets > 9){
+                bullets = 10;
+                reload();
+            }else{
+                bullets += 3;
+                reload();
+            }
+        }  
+    }
 })
 
 //стрельба (расход патронов и звук)
 document.body.addEventListener('mousedown', function(event){
 
-    bullets--;
     
     if(bullets >= 0){
         reload();
     }
     if(bullets > 0){
-        interval = setInterval(function(){
+            bullets--;
             let audio = new Audio();
             audio.preload = 'auto';
             audio.src = './shot.mp3';
             audio.play();
-        })
     }
     
-})
-//очистка интервала звука 
-document.body.addEventListener('mouseup', function(event){
-    clearInterval(interval);
 })
 
 //цикл ускорения появления врагов
@@ -148,18 +142,22 @@ let intMag = setInterval(() => {
         mag.innerHTML = "magazine: " + magaz;
     })
 }, 6000);
+
+if(magaz == 0 && bullets == 0){
+    gameOver = true;
+}
+
 if(gameOver){
     clearInterval(intMag);
 }
 
 //
 if(gameOver){
-    let all = document.querySelector('.gamePart');
-    all.style.display = 'none';
-    document.body.style.background = 'none'
-    document.body.style.backgroundColor = '#595959'
-    let gameOverTitle = document.createElement('h1');
-    document.body.append(gameOverTitle);
-    gameOverTitle.className = 'got'
-    gameOverTitle.innerText = "Game Over"
+    let gamE = document.createElement('h1')
+    document.body.append(gamE);
+    gamE.style.position = "absolute";
+    gamE.style.top = "50%";
+    gamE.style.left = "50%";
+    gamE.innerText = "Game Over"
+
 }
