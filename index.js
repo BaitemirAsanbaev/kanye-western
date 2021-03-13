@@ -16,20 +16,61 @@ let intervalTime = 3000;
 //магазин
 let magaz = 3;
 let mag = document.querySelector('#magaz');
-mag.innerText = '';
 
 
 //патроны
 let bullets = 10;
 let bul = document.querySelector('#bullets')
-bul.innerText = '';
 
 //конец игры
 let gameOver = false;
 
 
 
+
 //события
+let check = setInterval(() =>{
+    if(magaz == 0 && bullets == 0){
+        gameOver = true;
+    }
+    
+    if(gameOver){
+        let gamE = document.createElement('h1')
+        document.body.append(gamE);
+        gamE.style.position = "absolute";
+        gamE.style.top = "50%";
+        gamE.style.left = "50%";
+        gamE.innerText = "Game Over"
+        bul.innerText = '';
+        mag.innerText = '';
+    
+    }
+    if(gameOver){
+        clearInterval(intMag);
+    }
+}, 2000)
+
+//стрельба (расход патронов и звук)
+document.body.addEventListener('mousedown', () => {
+
+    if(bullets >= 0){
+        reload();
+    }
+    if(bullets > 0){
+            bullets--;
+            let audio = new Audio();
+            audio.preload = 'auto';
+            audio.src = './shot.mp3';
+            audio.play();
+    }
+    if(gameOver){
+        bul.innerText = '';
+    }
+    
+    if(gameOver){
+        clearInterval(int);
+    }
+})
 
 //прицел следует за мышкой
 document.body.addEventListener('mousemove', function(event){
@@ -51,7 +92,6 @@ function reload(){
 }
 
 
-
 //расход магазина и перезарядка
 document.body.addEventListener('keydown', (event) =>{
     if(event.keyCode == 82){
@@ -65,25 +105,13 @@ document.body.addEventListener('keydown', (event) =>{
                 bullets += 3;
                 reload();
             }
-        }  
+        } 
+        if(gameOver){
+            mag.innerText = '';
+            bul.innerText = '';
+            
+        } 
     }
-})
-
-//стрельба (расход патронов и звук)
-document.body.addEventListener('mousedown', function(event){
-
-    
-    if(bullets >= 0){
-        reload();
-    }
-    if(bullets > 0){
-            bullets--;
-            let audio = new Audio();
-            audio.preload = 'auto';
-            audio.src = './shot.mp3';
-            audio.play();
-    }
-    
 })
 
 //цикл ускорения появления врагов
@@ -116,9 +144,7 @@ let int = setInterval(() => {
         scr.innerHTML = "score: " + score;
     })
 }, intervalTime);
-if(gameOver){
-    clearInterval(int);
-}
+
 
 //интервал появления нового магазина
 let intMag = setInterval(() => {
@@ -143,21 +169,7 @@ let intMag = setInterval(() => {
     })
 }, 6000);
 
-if(magaz == 0 && bullets == 0){
-    gameOver = true;
-}
 
-if(gameOver){
-    clearInterval(intMag);
-}
+
 
 //
-if(gameOver){
-    let gamE = document.createElement('h1')
-    document.body.append(gamE);
-    gamE.style.position = "absolute";
-    gamE.style.top = "50%";
-    gamE.style.left = "50%";
-    gamE.innerText = "Game Over"
-
-}
