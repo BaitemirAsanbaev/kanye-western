@@ -37,6 +37,15 @@ body{
     background-color:rgba(0, 0, 0, 0.671);
 
 }
-.got{
-    color: rgb(0, 0, 0);
+.game-o{
+    width: 1000px;
+    height: 500px;
+    position: absolute;
+    background-color: cadetblue;
+}
+.game-h{
+    color: #fff;
+    font-size: 72px;
+    text-align: center;
+    vertical-align: middle;
 }

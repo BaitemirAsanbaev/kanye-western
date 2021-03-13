@@ -29,26 +29,7 @@ let gameOver = false;
 
 
 //события
-let check = setInterval(() =>{
-    if(magaz == 0 && bullets == 0){
-        gameOver = true;
-    }
-    
-    if(gameOver){
-        let gamE = document.createElement('h1')
-        document.body.append(gamE);
-        gamE.style.position = "absolute";
-        gamE.style.top = "50%";
-        gamE.style.left = "50%";
-        gamE.innerText = "Game Over"
-        bul.innerText = '';
-        mag.innerText = '';
-    
-    }
-    if(gameOver){
-        clearInterval(intMag);
-    }
-}, 2000)
+
 
 //стрельба (расход патронов и звук)
 document.body.addEventListener('mousedown', () => {
@@ -171,5 +152,23 @@ let intMag = setInterval(() => {
 
 
 
-
+let check = setInterval(() =>{
+    if(magaz == 0 && bullets == 0){
+        gameOver = true;
+    }
+    
+    if(gameOver){
+        let gamE = document.createElement('div');
+        let gamH = document.createElement('h1');
+        document.body.append(gamE);
+        gamE.append(gamH);
+        gamH.innerText = "Game Over"
+        gamE.className = "game-o"
+        gamH.className = 'game-h'
+        bul.innerText = '';
+        mag.innerText = '';
+        clearInterval(intMag);
+        clearInterval(int)
+    }
+}, 2000)
 //
