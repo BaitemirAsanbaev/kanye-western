@@ -39,12 +39,12 @@ document.body.addEventListener('mousedown', () => {
             reload();
             let audio = new Audio();
             audio.preload = 'auto';
-            audio.src = './shot.mp3';
+            audio.src = './audio/shot.mp3';
             audio.play();
     }else{
         let relAudio = new Audio();
         relAudio.preload ='auto';
-        relAudio.src = './empty.mp3';
+        relAudio.src = './audio/empty.mp3';
         relAudio.play();
     }
     if(gameOver){
@@ -60,7 +60,7 @@ document.body.addEventListener('mousedown', () => {
 document.body.addEventListener('mousemove', function(event){
     aim.style.position = "absolute";
     aim.style.backgroundSize = 'contain';
-    aim.style.backgroundImage = 'url(./aim.png)';
+    aim.style.backgroundImage = 'url(./imges/aim.png)';
     aim.style.width = '100px';
     aim.style.height = '100px';
     aim.style.top = (event.clientY - 50) + "px";
@@ -83,7 +83,7 @@ document.body.addEventListener('keydown', (event) =>{
             
             let relAudio = new Audio();
             relAudio.preload ='auto';
-            relAudio.src = './reload.mp3';
+            relAudio.src = './audio/reload.mp3';
             relAudio.play();
 
             magaz --;
@@ -104,13 +104,6 @@ document.body.addEventListener('keydown', (event) =>{
     }
 })
 
-//цикл ускорения появления врагов
-while(score % 10 == 0){
-    intervalTime -= 1000;
-    if(score == 0){
-        break
-    }
-}
 
 //интервал появления врагов
 let int = setInterval(() => {
@@ -134,7 +127,10 @@ let int = setInterval(() => {
         }
         scr.innerHTML = "score: " + score;
     })
+
 }, intervalTime);
+
+
 
 
 //интервал появления нового магазина
