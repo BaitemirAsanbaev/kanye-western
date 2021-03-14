@@ -38,9 +38,11 @@ body{
 
 }
 .game-o{
-    width: 1000px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     position: absolute;
+    top: 0px;
+    left: 0px;
     background-color: cadetblue;
 }
 .game-h{
