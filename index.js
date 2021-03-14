@@ -37,7 +37,7 @@ document.body.addEventListener('mousedown', () => {
     if(bullets >= 0){
         reload();
     }
-    if(bullets > 0){
+    if(bullets >= 0){
             bullets--;
             let audio = new Audio();
             audio.preload = 'auto';
@@ -79,7 +79,7 @@ document.body.addEventListener('keydown', (event) =>{
         if( magaz > 0){
             magaz --;
             mag.innerHTML = 'magazine: ' + magaz;
-            if( bullets > 9){
+            if( bullets >= 8){
                 bullets = 10;
                 reload();
             }else{
@@ -121,6 +121,7 @@ let int = setInterval(() => {
         if(bullets > 0){
             enemy.style.display = 'none';
             score ++;
+            reload();
         }
         scr.innerHTML = "score: " + score;
     })
