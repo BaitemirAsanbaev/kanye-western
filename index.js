@@ -121,7 +121,7 @@ let int = setInterval(() => {
     //при попадании исчезновение врагов
     enemy.addEventListener('mousedown', () => {
         if(bullets > 0){
-            enemy.style.display = 'none';
+            enemy.parentNode.removeChild(enemy);
             score ++;
             reload();
         }
@@ -149,7 +149,7 @@ let intMag = setInterval(() => {
     //при попадании исчезновение нового магазина
     plusMag.addEventListener('mousedown', () => {
         if(bullets > 0){
-            plusMag.style.display = 'none';
+            plusMag.parentNode.removeChild(plusMag);
             magaz ++;
         }
         mag.innerHTML = "magazine: " + magaz;
