@@ -11,7 +11,7 @@ let scr = document.querySelector('#score');
 scr.className = 'gamePart';
 
 //скорость появления врагов
-let intervalTime = 3000;
+let intervalTime = 2000;
 
 //магазин
 let magaz = 3;
