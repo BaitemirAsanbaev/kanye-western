@@ -34,15 +34,18 @@ let gameOver = false;
 //стрельба (расход патронов и звук)
 document.body.addEventListener('mousedown', () => {
 
-    if(bullets >= 0){
-        reload();
-    }
-    if(bullets >= 0){
+    if(bullets > 0){
             bullets--;
+            reload();
             let audio = new Audio();
             audio.preload = 'auto';
             audio.src = './shot.mp3';
             audio.play();
+    }else{
+        let relAudio = new Audio();
+        relAudio.preload ='auto';
+        relAudio.src = './empty.mp3';
+        relAudio.play();
     }
     if(gameOver){
         bul.innerText = '';
@@ -77,6 +80,12 @@ function reload(){
 document.body.addEventListener('keydown', (event) =>{
     if(event.keyCode == 82){
         if( magaz > 0){
+            
+            let relAudio = new Audio();
+            relAudio.preload ='auto';
+            relAudio.src = './reload.mp3';
+            relAudio.play();
+
             magaz --;
             mag.innerHTML = 'magazine: ' + magaz;
             if( bullets >= 8){
@@ -86,7 +95,7 @@ document.body.addEventListener('keydown', (event) =>{
                 bullets += 3;
                 reload();
             }
-        } 
+        }
         if(gameOver){
             mag.innerText = '';
             bul.innerText = '';
