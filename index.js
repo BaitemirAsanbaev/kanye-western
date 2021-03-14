@@ -27,6 +27,14 @@ let gameOver = false;
 
 
 
+let scoreArray = [];
+
+
+
+
+let loveIt = new Audio;
+loveIt.src = "./audio/i-love-it.mp3";
+
 
 //события
 
@@ -105,9 +113,9 @@ document.body.addEventListener('keydown', (event) =>{
 })
 
 
+
 //интервал появления врагов
 let int = setInterval(() => {
-
     let enemy = document.createElement('div');
     document.body.append(enemy);
     enemy.style.height = '100px';
@@ -125,11 +133,15 @@ let int = setInterval(() => {
             score ++;
             reload();
         }
+        if(score >= 10 || score >=15){
+            intervalTime -= 1000;
+        }
+        
         scr.innerHTML = "score: " + score;
+        scoreArray.push(score);
     })
 
 }, intervalTime);
-
 
 
 
@@ -154,7 +166,7 @@ let intMag = setInterval(() => {
         }
         mag.innerHTML = "magazine: " + magaz;
     })
-}, 6000);
+}, 9000);
 
 
 
@@ -166,15 +178,19 @@ let check = setInterval(() =>{
     if(gameOver){
         let gamE = document.createElement('div');
         let gamH = document.createElement('h1');
+        let evilKanye =document.createElement('div');
         document.body.append(gamE);
         gamE.append(gamH);
-        gamH.innerText = "Game Over"
-        gamE.className = "game-o"
-        gamH.className = 'game-h'
+        gamE.append(evilKanye);
+        evilKanye.className = ("evil-kanye");
+        gamH.innerText = "Game Over";
+        gamE.className = "game-o";
+        gamH.className = 'game-h';
         bul.innerText = '';
         mag.innerText = '';
         clearInterval(intMag);
-        clearInterval(int)
+        clearInterval(int);
+        loveIt.play();
     }
 }, 2000)
 //
