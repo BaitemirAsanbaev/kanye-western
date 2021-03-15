@@ -63,12 +63,22 @@ body{
     background: none;
     z-index: 1;
 }
-#score{
+.score-table{
+    background-image: url(./imges/table.png);
+    background-position: center;
+    background-size: cover;
     position: absolute;
-    top: 20px;
+    top: 0px;
     right: 20px;
-    color: aliceblue;
-    background-color:rgba(0, 0, 0, 0.671);
+    width: 150px;
+    height: 150px;
+}
+#score{
+    color: brown;
+    font-size: 28px;
+    position: relative;
+    top: 65px;
+    left: 30px;
 }
 #bullets{
     position: absolute;
