@@ -115,7 +115,11 @@ document.body.addEventListener('keydown', (event) =>{
 
 
 //интервал появления врагов
-let int = setInterval(() => {
+let int = setInterval(() => {    
+    let screenWidth = window.innerWidth;
+    let screenHight = window.innerHeight;
+    let maxX = screenWidth - 100;
+    let maxY =screenHight -100;
     let enemy = document.createElement('div');
     document.body.append(enemy);
     enemy.style.height = '100px';
@@ -123,8 +127,8 @@ let int = setInterval(() => {
     enemy.style.backgroundImage = 'url(./imges/kanye.png)'
     enemy.style.backgroundSize = 'contain'
     enemy.style.position = 'absolute';
-    enemy.style.top = (Math.floor(Math.random() * (700 - 100)) + 100) + 'px';
-    enemy.style.left = (Math.floor(Math.random() * (1200 - 100)) + 100) + 'px';
+    enemy.style.top = (Math.floor(Math.random() * (maxY - 100)) + 100) + 'px';
+    enemy.style.left = (Math.floor(Math.random() * (maxX - 100)) + 100) + 'px';
 
     //при попадании исчезновение врагов
     enemy.addEventListener('mousedown', () => {
