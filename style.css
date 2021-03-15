@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Aleo&display=swap');
 @keyframes game-over{
     0%{
         transform: translate(-20px, -20px);
@@ -49,6 +50,7 @@
 }
 *{
     box-sizing: border-box;
+    font-family: 'Aleo', serif;
 }
 body{
     margin: 0;
