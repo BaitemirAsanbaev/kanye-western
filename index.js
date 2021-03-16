@@ -156,9 +156,10 @@ let intMag = setInterval(() => {
     let maxX = screenWidth - 300;
     let maxY =screenHight -300;
     let plusMag = document.createElement('div');
+    plusMag
     document.body.append(plusMag);
     plusMag.style.height = '100px';
-    plusMag.style.width = '100px';
+    plusMag.style.width = '80px';
     plusMag.style.backgroundImage = 'url(./imges/plusMag.png)'
     plusMag.style.backgroundSize = 'contain'
     plusMag.style.position = 'absolute';
