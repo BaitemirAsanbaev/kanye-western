@@ -80,7 +80,7 @@ document.body.addEventListener('mousemove', function(event){
 
 //функция перезарядки
 function reload(){
-    bul.innerHTML = "bullets: " + bullets + '/10';
+    bul.innerHTML = bullets + '/10';
 }
 
 
@@ -95,7 +95,7 @@ document.body.addEventListener('keydown', (event) =>{
             relAudio.play();
 
             magaz --;
-            mag.innerHTML = 'magazine: ' + magaz;
+            mag.innerHTML = magaz;
             if( bullets >= 8){
                 bullets = 10;
                 reload();
@@ -118,8 +118,8 @@ document.body.addEventListener('keydown', (event) =>{
 let int = setInterval(() => {    
     let screenWidth = window.innerWidth;
     let screenHight = window.innerHeight;
-    let maxX = screenWidth - 100;
-    let maxY =screenHight -100;
+    let maxX = screenWidth - 300;
+    let maxY =screenHight -300;
     let enemy = document.createElement('div');
     document.body.append(enemy);
     enemy.style.height = '100px';
@@ -151,7 +151,10 @@ let int = setInterval(() => {
 
 //интервал появления нового магазина
 let intMag = setInterval(() => {
-
+    let screenWidth = window.innerWidth;
+    let screenHight = window.innerHeight;
+    let maxX = screenWidth - 300;
+    let maxY =screenHight -300;
     let plusMag = document.createElement('div');
     document.body.append(plusMag);
     plusMag.style.height = '100px';
@@ -159,8 +162,8 @@ let intMag = setInterval(() => {
     plusMag.style.backgroundImage = 'url(./imges/plusMag.png)'
     plusMag.style.backgroundSize = 'contain'
     plusMag.style.position = 'absolute';
-    plusMag.style.top = (Math.floor(Math.random() * (700 - 100)) + 100) + 'px';
-    plusMag.style.left = (Math.floor(Math.random() * (1200 - 100)) + 100) + 'px';
+    plusMag.style.top = (Math.floor(Math.random() * (maxY - 100)) + 100) + 'px';
+    plusMag.style.left = (Math.floor(Math.random() * (maxX - 100)) + 100) + 'px';
     
     //при попадании исчезновение нового магазина
     plusMag.addEventListener('mousedown', () => {
@@ -168,7 +171,7 @@ let intMag = setInterval(() => {
             plusMag.parentNode.removeChild(plusMag);
             magaz ++;
         }
-        mag.innerHTML = "magazine: " + magaz;
+        mag.innerHTML =  magaz;
     })
 }, 9000);
 
