@@ -1,148 +1,179 @@
-@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Aleo&display=swap');
-@keyframes game-over{
-    0%{
-        transform: translate(-20px, -20px);
-    }
-    30%{
-        transform: translate(20px, 20px);
-    }
-    60%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Aleo&display=swap");
+@keyframes game-over {
+  0% {
+    transform: translate(-20px, -20px);
+  }
+  30% {
+    transform: translate(20px, 20px);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-@keyframes background{
-    0%{
-        background-color: red;
-    }
-    10%{
-        background-color: rgb(91, 2, 255);
-    }
-    20%{
-        background-color: rgb(69, 0, 180);
-    }
-    30%{
-        background-color: rgb(20, 0, 133);
-    }
-    40%{
-        background-color: rgb(0, 60, 255);
-    }
-    50%{
-        background-color: rgb(0, 255, 255);
-    }
-    60%{
-        background-color: rgb(0, 255, 13);
-    }
-    70%{
-        background-color: rgb(70, 190, 0);
-    }
-    80%{
-        background-color: rgb(162, 180, 0);
-    }
-    90%{
-        background-color: rgb(255, 196, 0);
-    }
-    100%{
-        background-color: rgb(255, 0, 0);
-    }
-}
-*{
-    box-sizing: border-box;
-    font-family: 'Aleo', serif;
-}
-body{
-    margin: 0;
-    background-image: url(./imges/bg.jpg);
-    background-size: 125%;
-    background-position: top;
-    overflow: hidden;
-}
-.cont{
-    width: 100%;
-    height: 789px;
-    background: none;
-    z-index: 1;
-}
-.score-table{
-    background-image: url(./imges/table.png);
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 20px;
-    width: 150px;
-    height: 150px;
-}
-#score{
-    color: brown;
-    font-size: 28px;
-    position: relative;
-    top: 65px;
-    left: 30px;
-}
-.game-o{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
+@keyframes background {
+  0% {
+    background-color: red;
+  }
+  10% {
+    background-color: rgb(91, 2, 255);
+  }
+  20% {
+    background-color: rgb(69, 0, 180);
+  }
+  30% {
+    background-color: rgb(20, 0, 133);
+  }
+  40% {
+    background-color: rgb(0, 60, 255);
+  }
+  50% {
+    background-color: rgb(0, 255, 255);
+  }
+  60% {
+    background-color: rgb(0, 255, 13);
+  }
+  70% {
+    background-color: rgb(70, 190, 0);
+  }
+  80% {
+    background-color: rgb(162, 180, 0);
+  }
+  90% {
+    background-color: rgb(255, 196, 0);
+  }
+  100% {
     background-color: rgb(255, 0, 0);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: background 1s infinite;
+  }
 }
-.game-h{
-    color: #fff;
-    font-size: 72px;
-    text-align: center;
-    vertical-align: middle;
+* {
+  box-sizing: border-box;
+  font-family: "Aleo", serif;
 }
-.evil-kanye{
-    background-image: url(./imges/evil-kanye.png);
-    width: 450px;
-    height: 400px;
-    animation: game-over 2s  infinite alternate-reverse;
+body {
+  margin: 0;
+  background-image: url(./imges/bg.jpg);
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
 }
-#magazine-cont{
-    display: flex;
+.cont {
+  width: 100%;
+  height: 789px;
+  background: none;
+  z-index: 1;
 }
-#magazine-img{
-    background-image: url(./imges/magazine.png);
-    width: 60px;
-    height: 90px;
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    left: -10px;
+.score-table {
+  background-image: url(./imges/table.png);
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  width: 150px;
+  height: 150px;
 }
-#magaz{
-    color: aliceblue;
+#score {
+  color: brown;
+  font-size: 28px;
+  position: relative;
+  top: 65px;
+  left: 30px;
+}
+.game-o {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(255, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: background 1s infinite;
+}
+.game-h {
+  color: #fff;
+  font-size: 72px;
+  text-align: center;
+  vertical-align: middle;
+}
+.evil-kanye {
+  background-image: url(./imges/evil-kanye.png);
+  width: 450px;
+  height: 400px;
+  animation: game-over 2s infinite alternate-reverse;
+}
+#magazine-cont {
+  display: flex;
+}
+#magazine-img {
+  background-image: url(./imges/magazine.png);
+  width: 60px;
+  height: 90px;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  left: -10px;
+}
+#magaz {
+  color: aliceblue;
+}
+#bullet-cont {
+  display: flex;
+}
+#bullet-img {
+  background-image: url(./imges/bullet.png);
+  width: 60px;
+  height: 90px;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  left: -10px;
+}
+#bullets {
+  color: aliceblue;
+}
+#info-cont {
+  background-color: rgba(0, 0, 0, 0.671);
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 60px;
+}
+.copyright {
+  position: absolute;
+  bottom: 10px;
+  color:#fff;
+  left: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.747);
+  padding: 10px 20px;
+  letter-spacing: 2px;
+  z-index: 4;
+}
+.r-button{
+  position: absolute;
+  bottom: 100px;
+  left: 10px;
+  z-index: 4;
+  display: none;
+}
+.copyright a{
+  text-decoration: none;
+  color:#fff;
+}
+.copyright a:hover{
+  color: rgb(24, 240, 255);
+}
 
-}
-#bullet-cont{
-    display: flex;
-}
-#bullet-img{
-    background-image: url(./imges/bullet.png);
-    width: 60px;
-    height: 90px;
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    left: -10px;
-}
-#bullets{
-    color: aliceblue;
-}
-#info-cont{
-    background-color:rgba(0, 0, 0, 0.671);
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    padding: 5px 60px;
+@media (max-width:600px){
+  .r-button{
+    display: block;
+  }
 }
